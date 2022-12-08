@@ -3,17 +3,40 @@
             <meta charset="UTF-8"/>
             <title>Pidra, papel o tijeras</title>
             <script>
+                //1 es piedra, 2 es papel y 3 es tijeras;
                 let jugador= 0;
-                let pc=2;
-                jugador= prompt("Elige 1 para piedra, 2 para papel y 3 para tijeras");
+                jugador= prompt("Elige 1 🥌 para piedra, 2 para papel 📜 y 3 para tijeras ✂");
                 if (jugador == 1){
-                    alert ("Elegiste piedra");
+                    alert ("Elegiste piedra 🥌");
                 }else if(jugador == 2){
-                    alert ("Elegiste papel");
+                    alert ("Elegiste papel 📜");
                 }else if (jugador == 3){
-                    alert ("Elegiste tijeras");
+                    alert ("Elegiste tijeras ✂");
                 }else{
-                    alert ("Elegiste Perder");
+                    alert ("Elegiste Perder 😣 ");
+                }
+                //Eleccion del pc 
+                let pc=1;
+                if (pc == 1){
+                    alert("PC eligio Piedra 🥌");
+                }else if (pc == 2){
+                    alert ("PC eligio papel 📜");
+                }else if (pc == 3){
+                    alert("PC eligio tijeras ✂");
+                }else {
+                    alert("Error al programar 🙃")
+                }
+                //COMBATE 
+                if (jugador == pc){
+                    alert("Empate 😑");
+                }else if (jugador == 1 && pc ==3 ){
+                    alert("Ganaste 😀");
+                }else if (jugador == 2 && pc ==1 ){
+                    alert("Ganaste 😀");
+                }else if (jugador == 3 && pc ==2 ){
+                    alert("Ganaste 😀");
+                }else {
+                    alert ("Perdiste😱");
                 }
             </script>
     </head>
