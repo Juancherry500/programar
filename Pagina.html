@@ -1,16 +1,23 @@
 <html>
     <head>  
             <meta charset="UTF-8"/>
-            <title>Mi primera Programada</title>
+            <title>Pidra, papel o tijeras</title>
             <script>
-                let nombre="";
-                nombre=prompt("¿Cual es tu nombre?");
-                alert("Bienvenido " + nombre);
+                let jugador= 0;
+                let pc=2;
+                jugador= prompt("Elige 1 para piedra, 2 para papel y 3 para tijeras");
+                if (jugador == 1){
+                    alert ("Elegiste piedra");
+                }else if(jugador == 2){
+                    alert ("Elegiste papel");
+                }else if (jugador == 3){
+                    alert ("Elegiste tijeras");
+                }else{
+                    alert ("Elegiste Perder");
+                }
             </script>
     </head>
     <body>
-            <h1>Primer intento de Webside</h1>
-            <p>Este es nuestro primer programa completo y profesionl</p>
-            <p>Gran programa</p>
+            <h1>Pidra, papel o tijeras</h1>
     </body>
 </html>
