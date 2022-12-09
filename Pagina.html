@@ -3,6 +3,11 @@
             <meta charset="UTF-8"/>
             <title>Pidra, papel o tijeras</title>
             <script>
+                let min=1;
+                let max=3;
+                function Aleatorio (min,max){
+                        return Math.floor(Math.random()*(max-min+1)+min);
+                }
                 //1 es piedra, 2 es papel y 3 es tijeras;
                 let jugador= 0;
                 jugador= prompt("Elige 1 🥌 para piedra, 2 para papel 📜 y 3 para tijeras ✂");
@@ -16,7 +21,7 @@
                     alert ("Elegiste Perder 😣 ");
                 }
                 //Eleccion del pc 
-                let pc=1;
+                let pc= Aleatorio(min,max);
                 if (pc == 1){
                     alert("PC eligio Piedra 🥌");
                 }else if (pc == 2){
