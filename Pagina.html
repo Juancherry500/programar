@@ -26,17 +26,20 @@
                 alert ("PC eligio " + eleccion(pc));
                 
                 //COMBATE 
-                if (jugador == pc){
-                    alert("Empate 😑");
-                }else if (jugador == 1 && pc ==3 ){
-                    alert("Ganaste 😀");
-                }else if (jugador == 2 && pc ==1 ){
-                    alert("Ganaste 😀");
-                }else if (jugador == 3 && pc ==2 ){
-                    alert("Ganaste 😀");
-                }else {
-                    alert ("Perdiste😱");
+                function combate(elecionJugador,eleccionPC){
+                    if (elecionJugador == eleccionPC){
+                        alert("Empate 😑");
+                    }else if (elecionJugador == 1 && eleccionPC ==3 ){
+                        alert("Ganaste 😀");
+                    }else if (elecionJugador == 2 && eleccionPC ==1 ){
+                        alert("Ganaste 😀");
+                    }else if (elecionJugador == 3 && eleccionPC ==2 ){
+                        alert("Ganaste 😀");
+                    }else {
+                        alert ("Perdiste😱");
+                    }
                 }
+                combate(jugador,pc);
             </script>
     </head>
     <body>
