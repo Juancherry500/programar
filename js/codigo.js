@@ -1,0 +1,60 @@
+function aleatorio (min,max){
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+function eleccion(jugada){
+    let resultado="";
+    if (jugada == 1){
+        resultado = "PIEDRA 🥌";
+    }else if(jugada == 2){
+        resultado = "PAPLE 📜";
+    }else if (jugada == 3){
+        resultado ="TIJERAS ✂";
+    }else{
+        resultado ="MUY MAL  😣 ";
+    }
+    return resultado;
+}
+//COMBATE 
+function combate(elecionJugador,eleccionPC){
+    if (elecionJugador == eleccionPC){
+        alert("Empate 😑");
+    }else if (elecionJugador == 1 && eleccionPC ==3 ){
+        alert("Ganaste 😀");
+        triunfojugador=triunfojugador+1;
+    }else if (elecionJugador == 2 && eleccionPC ==1 ){
+        alert("Ganaste 😀");
+        triunfojugador=triunfojugador+1;
+    }else if (elecionJugador == 3 && eleccionPC ==2 ){
+        alert("Ganaste 😀");
+        triunfojugador=triunfojugador+1;
+    }else {
+        alert ("Perdiste😱");
+        triunfopc=triunfopc+1;
+    }
+}
+// Resultados finales
+function resultados(triunfojugador,triunfopc)
+{
+    if (triunfojugador == 3){
+        alert("🎉 🎉 Felicidades Has ganado 🎉 🎉 ");
+        alert("Ganaste " + triunfojugador + " a " + triunfopc);  
+    }else if(triunfopc == 3){
+        alert("💢 💢 Mala suerte Has perdido💢 💢 ");
+        alert("Perdiste " + triunfopc + " a " + triunfojugador);
+    }
+}
+//1 es piedra, 2 es papel y 3 es tijera. Eleccion del pc
+let jugador=0; 
+let pc= 0;
+let triunfojugador= 0;
+let triunfopc= 0;
+
+while (triunfojugador !== 3 && triunfopc !== 3)
+    {
+        jugador= prompt("Elige 1 para PIEDRA 🥌, 2 para PAPEL 📜 y 3 para TIJERAS ✂"); 
+        pc= aleatorio(1,3);
+        alert ("Elegiste " + eleccion(jugador));
+        alert ("PC eligio " + eleccion(pc));
+        combate(jugador,pc);
+        resultados(triunfojugador,triunfopc);
+    }
