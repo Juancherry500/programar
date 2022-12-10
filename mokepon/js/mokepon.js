@@ -6,15 +6,17 @@ function iniciarJuego(){
 
 function seleccionarMascotaJugador(){
     
-    let hipo = document.getElementById("hipodoge").checked
-    let capi = document.getElementById("capipepo").checked
-    let rati = document.getElementById("ratigueya").checked
-    if (hipo){
+    let inputHipodoge = document.getElementById("hipodoge");
+    let inputCapipepo = document.getElementById("capipepo");
+    let inputRatigueya = document.getElementById("ratigueya");
+    if (inputHipodoge.checked){
         alert("Selecionaste a Hipodoge")
-    }else if (capi){
+    }else if (inputCapipepo.checked){
         alert("Selecionaste a Capipepo")
-    }else if (rati){
+    }else if (inputRatigueya.checked){
         alert("Selecionaste a   Ratigueya")
+    }else{
+        alert ("Debes seleccionar una mascota")
     }
 }
 
