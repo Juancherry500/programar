@@ -4,18 +4,9 @@
     height: 50px;
     background-color: green;
 }
-label{
-    background-color: blue;
-    width: 288px;
-    height: 50;
-}
-input{
-    background-color: purple;
-    width: 288px;
-    height: 50;
-}
-button{
-    background-color: crimson;
-    width: 288px;
-    height: 50;
+#selecionar-mascotas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
