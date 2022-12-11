@@ -5,6 +5,11 @@ let vidaEnemigo=3;
 
 function iniciarJuego(){
 
+    let sectionSeleccionarAtaque=document.getElementById("selecionar-ataque");
+    sectionSeleccionarAtaque.style.display="none";
+    let sectionSeleccionarReiniciar=document.getElementById("reiniciar");
+    sectionSeleccionarReiniciar.style.display="none";
+
     let botonMascotaJugador = document.getElementById("boton-mascota");
     botonMascotaJugador.addEventListener("click",seleccionarMascotaJugador);
 
@@ -21,7 +26,12 @@ function iniciarJuego(){
 }
 
 function seleccionarMascotaJugador(){
-    
+    let sectionSeleccionarMascota=document.getElementById("selecionar-mascotas");
+    sectionSeleccionarMascota.style.display="none";
+    let sectionSeleccionarAtaque=document.getElementById("selecionar-ataque");
+    sectionSeleccionarAtaque.style.display="block";
+
+
     let inputHipodoge = document.getElementById("hipodoge");
     let inputCapipepo = document.getElementById("capipepo");
     let inputRatigueya = document.getElementById("ratigueya");
@@ -133,6 +143,9 @@ function crearMensajeFinal(resultadoFinal){
     botonAtaqueAgua.disabled=true;
     let botonAtaqueTierra=document.getElementById("boton-tierra");
     botonAtaqueTierra.disabled=true;
+
+    let sectionSeleccionarReiniciar=document.getElementById("reiniciar");
+    sectionSeleccionarReiniciar.style.display="block";
 }
 function reiniciarJuego(){
     location.reload();
