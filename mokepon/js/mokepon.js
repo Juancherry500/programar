@@ -1,5 +1,7 @@
 let ataqueJuagador;
 let ataqueEnemigo;
+let vidaJugador=3;
+let vidaEnemigo=3;
 
 function iniciarJuego(){
 
@@ -78,16 +80,27 @@ function ataqueEnemigoAleatorio(){
 }
 function combate(){
 
+    let spanVidaJugador=document.getElementById("vida-jugador");
+    let spanVidaEnemigo=document.getElementById("vida-enemigo")
+
     if (ataqueJuagador==ataqueEnemigo){
         crearMensaje("EMPATE")
     }else if (ataqueJuagador=="FUEGO" && ataqueEnemigo=="AGUA"){
         crearMensaje("GANASTE")
+        vidaEnemigo=vidaEnemigo-1;
+        spanVidaEnemigo.innerHTML=vidaEnemigo;
     }else if (ataqueJuagador=="AGUA" && ataqueEnemigo=="TIERRA"){
         crearMensaje("GANASTE")
+        vidaEnemigo=vidaEnemigo-1;
+        spanVidaEnemigo.innerHTML=vidaEnemigo;
     }else if (ataqueJuagador=="TIERRA" && ataqueEnemigo=="FUEGO"){
         crearMensaje("GANASTE")
+        vidaEnemigo=vidaEnemigo-1;
+        spanVidaEnemigo.innerHTML=vidaEnemigo;
     }else{
         crearMensaje("PERDISTE")
+        vidaJugador=vidaJugador-1;
+        spanVidaJugador.innerHTML=vidaJugador;
     }
 }
 function crearMensaje(resultadoDeCombate){
