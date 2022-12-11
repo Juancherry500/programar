@@ -102,11 +102,25 @@ function combate(){
         vidaJugador=vidaJugador-1;
         spanVidaJugador.innerHTML=vidaJugador;
     }
+    revisarVidas()
+}
+function revisarVidas(){
+    if (vidaJugador==0){
+        crearMensajeFinal("MALA SUERTE HAS PERDIDO");
+    }else if(vidaEnemigo==0){
+        crearMensajeFinal("FELICITACIONES, HAS DERROTADO A TU ENEMIGO");
+    }
 }
 function crearMensaje(resultadoDeCombate){
     let seccionMensaje=document.getElementById("mensajes");
     let parrafo = document.createElement("p")
     parrafo.innerHTML="El ataque de tu mascota fue " + ataqueJuagador + " y el ataque de tu enemigo fue " + ataqueEnemigo + " Resultado: " + resultadoDeCombate;
+    seccionMensaje.appendChild(parrafo);
+}
+function crearMensajeFinal(resultadoFinal){
+    let seccionMensaje=document.getElementById("mensajes");
+    let parrafo = document.createElement("p")
+    parrafo.innerHTML=resultadoFinal;
     seccionMensaje.appendChild(parrafo);
 }
 function aleatorio(min,max){
