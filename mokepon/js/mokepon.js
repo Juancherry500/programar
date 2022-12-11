@@ -14,6 +14,10 @@ function iniciarJuego(){
     botonAtaqueAgua.addEventListener("click",ataqueAgua);
     let botonAtaqueTierra = document.getElementById("boton-tierra");
     botonAtaqueTierra.addEventListener("click",ataqueTierra);
+
+    let botonReiniciarJuego=document.getElementById("boton-reiniciar");
+    botonReiniciarJuego.addEventListener("click",reiniciarJuego);
+    
 }
 
 function seleccionarMascotaJugador(){
@@ -122,6 +126,16 @@ function crearMensajeFinal(resultadoFinal){
     let parrafo = document.createElement("p")
     parrafo.innerHTML=resultadoFinal;
     seccionMensaje.appendChild(parrafo);
+
+    let botonAtaqueFuego=document.getElementById("boton-fuego");
+    botonAtaqueFuego.disabled=true;
+    let botonAtaqueAgua=document.getElementById("boton-agua");
+    botonAtaqueAgua.disabled=true;
+    let botonAtaqueTierra=document.getElementById("boton-tierra");
+    botonAtaqueTierra.disabled=true;
+}
+function reiniciarJuego(){
+    location.reload();
 }
 function aleatorio(min,max){
     return Math.floor(Math.random()*(max-min+1)+min);
