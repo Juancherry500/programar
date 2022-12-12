@@ -126,16 +126,30 @@ function revisarVidas(){
     }
 }
 function crearMensaje(resultadoDeCombate){
-    let seccionMensaje=document.getElementById("mensajes");
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML="El ataque de tu mascota fue " + ataqueJuagador + " y el ataque de tu enemigo fue " + ataqueEnemigo + " Resultado: " + resultadoDeCombate;
-    seccionMensaje.appendChild(parrafo);
+    let seccionMensaje=document.getElementById("resultado");
+    let ataqueDelJugador=document.getElementById("ataque-Del-Jugador");
+    let ataqueDelEnemigo=document.getElementById("ataque-Del-Enemigo");
+
+
+    let parrafoataqueDelJugador = document.createElement("p");
+    let parrafoataqueDelEnemigo = document.createElement("p");
+
+    seccionMensaje.innerHTML=resultadoDeCombate;
+    parrafoataqueDelJugador.innerHTML=ataqueJuagador;
+    parrafoataqueDelEnemigo.innerHTML=ataqueEnemigo;
+
+    ataqueDelJugador.appendChild(parrafoataqueDelJugador);
+    ataqueDelEnemigo.appendChild(parrafoataqueDelEnemigo);
+
+
+    //parrafo.innerHTML="El ataque de tu mascota fue " + ataqueJuagador + " y el ataque de tu enemigo fue " + ataqueEnemigo + " Resultado: " + resultadoDeCombate;
+    //seccionMensaje.appendChild(parrafo);
 }
 function crearMensajeFinal(resultadoFinal){
-    let seccionMensaje=document.getElementById("mensajes");
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML=resultadoFinal;
-    seccionMensaje.appendChild(parrafo);
+    let seccionMensaje=document.getElementById("resultado");
+   
+    seccionMensaje.innerHTML=resultadoFinal;
+
 
     let botonAtaqueFuego=document.getElementById("boton-fuego");
     botonAtaqueFuego.disabled=true;
