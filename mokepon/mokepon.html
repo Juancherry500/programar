@@ -9,7 +9,6 @@
     <body>
         <section id="selecionar-mascotas">
             <h1 class="titulo">MOKEPON!</h1>
-
             <h2 class="subtitulo">Elige tu mascota:</h2>
             
                 <div class="tarjetas">
@@ -31,31 +30,29 @@
                     </label>
                     <input type="radio" name="mascota" id="ratigueya"/>
                 </div>
-                
-
-
             <button id="boton-mascota">Seleccionar</button> 
         </section>
 
         <section id="selecionar-ataque">
             <h1 class="titulo">MOKEPON!</h1>
-
             <h2>Elige tu ataque:</h2>
-            <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vida-jugador">3</span> vidas</p>
-            <p>La mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vida-enemigo">3</span> vidas</p>
+                <div>
+                    <button id="boton-fuego">Fuego 🔥</button>
+                    <button id="boton-agua">Agua 💧</button>
+                    <button id="boton-tierra">Tierra 🌱</button>
+                </div>
+                <div>
+                    <section id="mensajes">
+                    </section>
+                    <section id="reiniciar">
+                        <button id="boton-reiniciar">Reiniciar</button>
+                    </section>
+                </div>
+                <div>
+                    <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vida-jugador">3</span> vidas</p>
+                    <p>La mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vida-enemigo">3</span> vidas</p>
+                </div>
 
-            <P>
-                <button id="boton-fuego">Fuego 🔥</button>
-                <button id="boton-agua">Agua 💧</button>
-                <button id="boton-tierra">Tierra 🌱</button>
-            </P>
-        </section>
-
-        <section id="mensajes">
-        </section>
-
-        <section id="reiniciar">
-            <button id="boton-reiniciar">Reiniciar</button>
         </section>
     </body>
 </html>
