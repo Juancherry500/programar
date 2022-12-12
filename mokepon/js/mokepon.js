@@ -29,7 +29,7 @@ function seleccionarMascotaJugador(){
     let sectionSeleccionarMascota=document.getElementById("selecionar-mascotas");
     sectionSeleccionarMascota.style.display="none";
     let sectionSeleccionarAtaque=document.getElementById("selecionar-ataque");
-    sectionSeleccionarAtaque.style.display="block";
+    sectionSeleccionarAtaque.style.display="flex";
 
 
     let inputHipodoge = document.getElementById("hipodoge");
