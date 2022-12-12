@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@200&display=swap');
 
 body{
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Poppins', sans-serif;
     background-color: #001253;
 }
 #selecionar-mascotas{
@@ -15,6 +15,7 @@ body{
     width: 300px;
     height: 50px;
     font-size: 40px;
+    font-family: 'Luckiest Guy', cursive;
 }
 .subtitulo{
     color: white;
@@ -41,6 +42,18 @@ body{
 }
 .tarjeta-de-mokepon img {
     width: 80px;
+}
+
+#boton-mascota{
+    width: 180px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+
 }
 input{
     display: none;
