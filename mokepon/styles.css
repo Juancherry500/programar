@@ -63,6 +63,9 @@ input{
     flex-direction: column;
     align-items: center;
 }
+#botones{
+    display: flex;
+}
 .boton-de-ataque{
     width: 100px;
     box-sizing: border-box;
@@ -98,4 +101,17 @@ input{
 .ataque{
     display: grid;
     grid-template-columns: 100px 100px;
+}
+.ataque-jugador, .ataque-enemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (max-width: 560px){
+    .tarjetas{
+        flex-direction: column;
+    }
+    #botones{
+        flex-direction: column;
+    }
 }
