@@ -95,3 +95,7 @@ input{
     font-family: 'Poppins', sans-serif;
 
 }
+.ataque{
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
