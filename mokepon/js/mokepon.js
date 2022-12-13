@@ -22,6 +22,19 @@ let ataqueEnemigo;
 let vidaJugador=3;
 let vidaEnemigo=3;
 
+class Mokepon{
+    constructor(nombre, foto, vida){
+        this.nombre=nombre;
+        this.foto=foto;
+        this.vida=vida;
+    }
+}
+
+let hipodoge= new Mokepon("Hipodoge","./assets/hipodogue.webp",5);
+let capipepo= new Mokepon("Capipepo","./assets/capipepo.webp",5);
+let ratigueya= new Mokepon(" Ratigueya","./assets/ratigueya.webp",5);
+console.log(hipodoge);
+
 function iniciarJuego(){
 
     sectionSeleccionarAtaque.style.display="none";
