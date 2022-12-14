@@ -1,9 +1,12 @@
 const sectionSeleccionarAtaque=document.getElementById("selecionar-ataque");
 const sectionSeleccionarReiniciar=document.getElementById("reiniciar");
 const botonMascotaJugador = document.getElementById("boton-mascota");
+
 const botonAtaqueFuego = document.getElementById("boton-fuego");
 const botonAtaqueAgua = document.getElementById("boton-agua");
 const botonAtaqueTierra = document.getElementById("boton-tierra");
+//const contenedorDeBotones=document.getElementById("botones")
+
 const botonReiniciarJuego=document.getElementById("boton-reiniciar");
 const sectionSeleccionarMascota=document.getElementById("selecionar-mascotas");
 const spanMascotaJuagador = document.getElementById("mascota-jugador");
@@ -22,6 +25,8 @@ let ataqueEnemigo;
 let vidaJugador=3;
 let vidaEnemigo=3;
 let opcionesDeMokepon;
+let mascotaJugador;
+//let opcionesDeAatque;
 let inputHipodoge;
 let inputCapipepo;
 let inputRatigueya;
@@ -88,6 +93,7 @@ function iniciarJuego(){
   
     botonMascotaJugador.addEventListener("click",seleccionarMascotaJugador);
 
+
     botonAtaqueFuego.addEventListener("click",ataqueFuego);
     botonAtaqueAgua.addEventListener("click",ataqueAgua);
     botonAtaqueTierra.addEventListener("click",ataqueTierra);
@@ -104,15 +110,31 @@ function seleccionarMascotaJugador(){
 
     if (inputHipodoge.checked){
         spanMascotaJuagador.innerHTML=inputHipodoge.id;
+        mascotaJugador=inputHipodoge.id;
     }else if (inputCapipepo.checked){
         spanMascotaJuagador.innerHTML=inputCapipepo.id;
+        mascotaJugador=inputCapipepo.id;
     }else if (inputRatigueya.checked){
         spanMascotaJuagador.innerHTML=inputRatigueya.id;
+        mascotaJugador=inputRatigueya.id;
     }else{
         alert ("Debes seleccionar una mascota")
     }
 
-    seleccionarMascotaEnemigo() 
+    seleccionarMascotaEnemigo();
+    extraerAtaque(mascotaJugador);
+}
+
+function extraerAtaque(mascotaJugador){
+    let ataques
+    for (let i = 0; i < mokepones.length; i++) {
+       if (mascotaJugador===mokepones[i].nombre) {
+         ataques=mokepones[i].ataques;
+       }
+        
+    }
+    console.log(ataques);
+    
 }
 
 function seleccionarMascotaEnemigo(){
@@ -123,6 +145,7 @@ function seleccionarMascotaEnemigo(){
     spanMascotaEnemigo.innerHTML=mokepones[mascotaAleatorio].nombre;
 
 }
+
 function ataqueFuego(){
 
     ataqueJuagador="FUEGO";
