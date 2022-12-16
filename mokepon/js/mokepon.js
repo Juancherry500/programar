@@ -29,6 +29,8 @@ let botonAtaqueFuego;
 let botonAtaqueAgua;
 let botonAtaqueTierra;
 let botones=[];
+let indexAtaqueJugador;
+let indexAtaqueEnemigo;
 let ataquesMokeponEnemigo;
 
 class Mokepon{
@@ -200,29 +202,30 @@ function ataqueEnemigoAleatorio(){
         ataqueEnemigo.push("TIERRA");
     }
     console.log(ataqueEnemigo);
-    combate()
+    iniciarCombate()
 }
+
+function iniciarCombate(){
+    if(ataqueJuagador.length===5){
+        combate()
+    }
+}
+
+function indexAmbosOponentes(jugdor,enemigo){
+    indexAtaqueJugador=ataqueJuagador[jugdor]
+    indexAtaqueEnemigo=ataqueEnemigo[enemigo]
+}
+
 function combate(){
 
-    if (ataqueJuagador==ataqueEnemigo){
-        crearMensaje("EMPATE")
-    }else if (ataqueJuagador=="FUEGO" && ataqueEnemigo=="AGUA"){
-        crearMensaje("GANASTE")
-        vidaEnemigo=vidaEnemigo-1;
-        spanVidaEnemigo.innerHTML=vidaEnemigo;
-    }else if (ataqueJuagador=="AGUA" && ataqueEnemigo=="TIERRA"){
-        crearMensaje("GANASTE")
-        vidaEnemigo=vidaEnemigo-1;
-        spanVidaEnemigo.innerHTML=vidaEnemigo;
-    }else if (ataqueJuagador=="TIERRA" && ataqueEnemigo=="FUEGO"){
-        crearMensaje("GANASTE")
-        vidaEnemigo=vidaEnemigo-1;
-        spanVidaEnemigo.innerHTML=vidaEnemigo;
-    }else{
-        crearMensaje("PERDISTE")
-        vidaJugador=vidaJugador-1;
-        spanVidaJugador.innerHTML=vidaJugador;
+    for (let index = 0; index < ataqueJuagador.length; index++) {
+        if (ataqueJuagador[index] === ataqueEnemigo[index]){
+            indexAmbosOponentes(index,index)
+            crearMensaje("EMPATE")
+        }
     }
+
+  
     revisarVidas()
 }
 function revisarVidas(){
@@ -238,8 +241,8 @@ function crearMensaje(resultadoDeCombate){
     let parrafoataqueDelEnemigo = document.createElement("p");
 
     seccionMensaje.innerHTML=resultadoDeCombate;
-    parrafoataqueDelJugador.innerHTML=ataqueJuagador;
-    parrafoataqueDelEnemigo.innerHTML=ataqueEnemigo;
+    parrafoataqueDelJugador.innerHTML=indexAtaqueJugador;
+    parrafoataqueDelEnemigo.innerHTML=indexAtaqueEnemigo;
 
     ataqueDelJugador.appendChild(parrafoataqueDelJugador);
     ataqueDelEnemigo.appendChild(parrafoataqueDelEnemigo);
