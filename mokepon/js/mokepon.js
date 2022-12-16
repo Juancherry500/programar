@@ -220,8 +220,28 @@ function combate(){
 
     for (let index = 0; index < ataqueJuagador.length; index++) {
         if (ataqueJuagador[index] === ataqueEnemigo[index]){
-            indexAmbosOponentes(index,index)
-            crearMensaje("EMPATE")
+            indexAmbosOponentes(index,index);
+            crearMensaje("EMPATE");
+        }else if (ataqueJuagador[index]==="FUEGO" && ataqueEnemigo[index]==="TIERRA"){
+            indexAmbosOponentes(index,index);
+            crearMensaje("GANASTE");
+            vidaEnemigo--
+            spanVidaEnemigo.innerHTML=vidaEnemigo;
+        }else if (ataqueJuagador[index]==="AGUA" && ataqueEnemigo[index]==="FUEGO"){
+            indexAmbosOponentes(index,index);
+            crearMensaje("GANASTE");
+            vidaEnemigo--
+            spanVidaEnemigo.innerHTML=vidaEnemigo;
+        }else if (ataqueJuagador[index]==="TIERRA" && ataqueEnemigo[index]==="AGUA"){
+            indexAmbosOponentes(index,index);
+            crearMensaje("GANASTE");
+            vidaEnemigo--
+            spanVidaEnemigo.innerHTML=vidaEnemigo;
+        }else{
+            indexAmbosOponentes(index,index);
+            crearMensaje("PERDISTE");
+            vidaJugador--
+            spanVidaEnemigo.innerHTML=vidaJugador;
         }
     }
 
