@@ -6,8 +6,8 @@ const botonReiniciarJuego=document.getElementById("boton-reiniciar");
 const sectionSeleccionarMascota=document.getElementById("selecionar-mascotas");
 const spanMascotaJuagador = document.getElementById("mascota-jugador");
 const spanMascotaEnemigo=document.getElementById("mascota-enemigo");
-const spanVidaJugador=document.getElementById("vida-jugador");
-const spanVidaEnemigo=document.getElementById("vida-enemigo")
+const spanVictoriaJugador=document.getElementById("victoria-jugador");
+const spanVictoriaEnemigo=document.getElementById("victoria-enemigo")
 const seccionMensaje=document.getElementById("resultado");
 const ataqueDelJugador=document.getElementById("ataque-Del-Jugador");
 const ataqueDelEnemigo=document.getElementById("ataque-Del-Enemigo");
@@ -17,6 +17,8 @@ const contenedorDeTarjetas=document.getElementById("contenedorDeTarjetas");
 let mokepones=[];
 let ataqueJuagador = [];
 let ataqueEnemigo=[];
+let victoriasJugador=0;
+let victoriasEnemigo=0;
 let vidaJugador=3;
 let vidaEnemigo=3;
 let opcionesDeMokepon;
@@ -32,6 +34,7 @@ let botones=[];
 let indexAtaqueJugador;
 let indexAtaqueEnemigo;
 let ataquesMokeponEnemigo;
+
 
 class Mokepon{
     constructor(nombre, foto, vida){
@@ -225,34 +228,36 @@ function combate(){
         }else if (ataqueJuagador[index]==="FUEGO" && ataqueEnemigo[index]==="TIERRA"){
             indexAmbosOponentes(index,index);
             crearMensaje("GANASTE");
-            vidaEnemigo--
-            spanVidaEnemigo.innerHTML=vidaEnemigo;
+            victoriasJugador++
+            spanVictoriaJugador.innerHTML=victoriasJugador;
         }else if (ataqueJuagador[index]==="AGUA" && ataqueEnemigo[index]==="FUEGO"){
             indexAmbosOponentes(index,index);
             crearMensaje("GANASTE");
-            vidaEnemigo--
-            spanVidaEnemigo.innerHTML=vidaEnemigo;
+            victoriasJugador++
+            spanVictoriaJugador.innerHTML=victoriasJugador;
         }else if (ataqueJuagador[index]==="TIERRA" && ataqueEnemigo[index]==="AGUA"){
             indexAmbosOponentes(index,index);
             crearMensaje("GANASTE");
-            vidaEnemigo--
-            spanVidaEnemigo.innerHTML=vidaEnemigo;
+            victoriasJugador++
+            spanVictoriaJugador.innerHTML=victoriasJugador;
         }else{
             indexAmbosOponentes(index,index);
             crearMensaje("PERDISTE");
-            vidaJugador--
-            spanVidaEnemigo.innerHTML=vidaJugador;
+            victoriasEnemigo++
+            spanVictoriaEnemigo.innerHTML=victoriasEnemigo;
         }
     }
 
   
-    revisarVidas()
+    revisarVictorias()
 }
-function revisarVidas(){
-    if (vidaJugador==0){
-        crearMensajeFinal("MALA SUERTE HAS PERDIDO");
-    }else if(vidaEnemigo==0){
+function revisarVictorias(){
+    if (victoriasJugador===victoriasEnemigo){
+        crearMensajeFinal("ESTO FUE UN EMPATE");
+    }else if(victoriasJugador > victoriasEnemigo){
         crearMensajeFinal("FELICITACIONES, HAS DERROTADO A TU ENEMIGO");
+    }else{
+        crearMensajeFinal("MALA SUERTE HAS PERDIDO");
     }
 }
 function crearMensaje(resultadoDeCombate){
