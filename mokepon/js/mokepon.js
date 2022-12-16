@@ -157,11 +157,11 @@ function mostrarAtaques(ataques){
 function secuenciaDeAtaque(){
     botones.forEach((boton) => {
         boton.addEventListener("click", (e) => {
-            if(e.target.textContent==="🔥"){
+            if(e.target.textContent==="🔥 "){
                 ataqueJuagador.push("FUEGO");
                 console.log(ataqueJuagador);
                 boton.style.background="#112f58";
-            }else if(e.target.textContent==="💧"){
+            }else if(e.target.textContent==="💧 "){
                 ataqueJuagador.push("AGUA");
                 console.log(ataqueJuagador);
                 boton.style.background="#112f58";
@@ -170,6 +170,7 @@ function secuenciaDeAtaque(){
                 console.log(ataqueJuagador);
                 boton.style.background="#112f58";
             }
+            console.log(e)
         })
     });
 }
