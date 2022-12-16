@@ -16,7 +16,7 @@ const contenedorDeTarjetas=document.getElementById("contenedorDeTarjetas");
 
 let mokepones=[];
 let ataqueJuagador = [];
-let ataqueEnemigo;
+let ataqueEnemigo=[];
 let vidaJugador=3;
 let vidaEnemigo=3;
 let opcionesDeMokepon;
@@ -29,6 +29,7 @@ let botonAtaqueFuego;
 let botonAtaqueAgua;
 let botonAtaqueTierra;
 let botones=[];
+let ataquesMokeponEnemigo;
 
 class Mokepon{
     constructor(nombre, foto, vida){
@@ -149,9 +150,7 @@ function mostrarAtaques(ataques){
     botones = document.querySelectorAll(".BAtaque");
     
 
-    //botonAtaqueFuego.addEventListener("click",ataqueFuego);
-    //botonAtaqueAgua.addEventListener("click",ataqueAgua);
-    //botonAtaqueTierra.addEventListener("click",ataqueTierra);
+
 }
 
 function secuenciaDeAtaque(){
@@ -170,7 +169,7 @@ function secuenciaDeAtaque(){
                 console.log(ataqueJuagador);
                 boton.style.background="#112f58";
             }
-            console.log(e)
+            ataqueEnemigoAleatorio()
         })
     });
 }
@@ -181,6 +180,8 @@ function seleccionarMascotaEnemigo(){
 
 
     spanMascotaEnemigo.innerHTML=mokepones[mascotaAleatorio].nombre;
+
+    ataquesMokeponEnemigo=mokepones[mascotaAleatorio].ataques;
     secuenciaDeAtaque();
 
 
@@ -189,15 +190,16 @@ function seleccionarMascotaEnemigo(){
 
 function ataqueEnemigoAleatorio(){
 
-    let ataqueAleatorio=aleatorio(1,3);
+    let ataqueAleatorio=aleatorio(0,ataquesMokeponEnemigo.length-1);
 
-    if(ataqueAleatorio == 1){
-        ataqueEnemigo="FUEGO";
-    }else if (ataqueAleatorio == 2){
-        ataqueEnemigo="AGUA";
+    if(ataqueAleatorio == 0 || ataqueAleatorio == 1){
+        ataqueEnemigo.push("FUEGO");
+    }else if (ataqueAleatorio == 3 || ataqueAleatorio == 4){
+        ataqueEnemigo.push("AGUA");
     }else{
-        ataqueEnemigo="TIERRA";
+        ataqueEnemigo.push("TIERRA");
     }
+    console.log(ataqueEnemigo);
     combate()
 }
 function combate(){
