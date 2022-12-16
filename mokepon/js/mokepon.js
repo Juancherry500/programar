@@ -165,14 +165,17 @@ function secuenciaDeAtaque(){
                 ataqueJuagador.push("FUEGO");
                 console.log(ataqueJuagador);
                 boton.style.background="#112f58";
+                boton.disabled=true;
             }else if(e.target.textContent==="💧 "){
                 ataqueJuagador.push("AGUA");
                 console.log(ataqueJuagador);
                 boton.style.background="#112f58";
+                boton.disabled=true;
             }else{
                 ataqueJuagador.push("TIERRA");
                 console.log(ataqueJuagador);
                 boton.style.background="#112f58";
+                boton.disabled=true;
             }
             ataqueEnemigoAleatorio()
         })
@@ -276,10 +279,6 @@ function crearMensaje(resultadoDeCombate){
 function crearMensajeFinal(resultadoFinal){
    
     seccionMensaje.innerHTML=resultadoFinal;
-
-    botonAtaqueFuego.disabled=true;
-    botonAtaqueAgua.disabled=true;
-    botonAtaqueTierra.disabled=true;
 
     sectionSeleccionarReiniciar.style.display="block";
 }
