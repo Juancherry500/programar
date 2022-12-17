@@ -43,25 +43,37 @@ let mapaBackground= new Image();
 mapaBackground.src="./assets/mokemap.png";
 
 class Mokepon{
-    constructor(nombre, foto, vida){
+    constructor(nombre, foto, vida,mapaFoto, x=10, y=10){
         this.nombre=nombre;
         this.foto=foto;
         this.vida=vida;
         this.ataques=[];
-        this.x=20;
-        this.y=30;
+        this.x=x;
+        this.y=y;
         this.ancho=50;
         this.alto=50;
         this.mapaFoto= new Image();
-        this.mapaFoto.src=foto;
+        this.mapaFoto.src=mapaFoto;
         this.velocidadX=0;
         this.velocidadY=0;
     }
+    pintarPersonajes(){
+        lienzo.drawImage(
+            this.mapaFoto,
+            this.x,
+            this.y,
+            this.ancho,
+            this.alto
+        );
+    }
 }
 
-let hipodoge= new Mokepon("Hipodoge","./assets/hipodogue.webp",5);
-let capipepo= new Mokepon("Capipepo","./assets/capipepo.webp",5);
-let ratigueya= new Mokepon("Ratigueya","./assets/ratigueya.webp",5);
+let hipodoge= new Mokepon("Hipodoge","./assets/hipodogue.webp",5,"./assets/Cabezahipodoge.png");
+let capipepo= new Mokepon("Capipepo","./assets/capipepo.webp",5,"./assets/Cabezacapipepo.png");
+let ratigueya= new Mokepon("Ratigueya","./assets/ratigueya.webp",5,"./assets/Cabezaratigueya (1).webp");
+let hipodogeEnemigo= new Mokepon("Hipodoge","./assets/hipodogue.webp",5,"./assets/Cabezahipodoge.png",100,350);
+let capipepoEnemigo= new Mokepon("Capipepo","./assets/capipepo.webp",5,"./assets/Cabezacapipepo.png",400,250);
+let ratigueyaEnemigo= new Mokepon("Ratigueya","./assets/ratigueya.webp",5,"./assets/Cabezaratigueya (1).webp",400,150);
 
 hipodoge.ataques.push(
     {nombre:"💧", id:"boton-agua"},
@@ -320,13 +332,12 @@ function pintarCanvas(){
         mapa.width,
         mapa.height
     );
-    lienzo.drawImage(
-        mascotaJugadorObjeto.mapaFoto,
-        mascotaJugadorObjeto.x,
-        mascotaJugadorObjeto.y,
-        mascotaJugadorObjeto.ancho,
-        mascotaJugadorObjeto.alto
-    );
+
+    capipepoEnemigo.pintarPersonajes();
+    hipodogeEnemigo.pintarPersonajes();
+    ratigueyaEnemigo.pintarPersonajes();
+    mascotaJugadorObjeto.pintarPersonajes();
+ 
 }
 function moverArriba(){
     mascotaJugadorObjeto.velocidadY= - 5;
