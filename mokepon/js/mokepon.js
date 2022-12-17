@@ -12,6 +12,8 @@ const seccionMensaje=document.getElementById("resultado");
 const ataqueDelJugador=document.getElementById("ataque-Del-Jugador");
 const ataqueDelEnemigo=document.getElementById("ataque-Del-Enemigo");
 const contenedorDeTarjetas=document.getElementById("contenedorDeTarjetas");
+const sectionVerMapas=document.getElementById("ver-mapas");
+const mapa=document.getElementById("mapa");
 
 
 let mokepones=[];
@@ -34,6 +36,7 @@ let botones=[];
 let indexAtaqueJugador;
 let indexAtaqueEnemigo;
 let ataquesMokeponEnemigo;
+let lienzo = mapa.getContext("2d");
 
 
 class Mokepon{
@@ -80,7 +83,8 @@ mokepones.push(hipodoge,capipepo,ratigueya);
 function iniciarJuego(){
 
     sectionSeleccionarAtaque.style.display="none";
-    sectionSeleccionarReiniciar.style.display="none";
+    sectionVerMapas.style.display="none";
+
 
     mokepones.forEach((mokepon) => {
          opcionesDeMokepon =`
@@ -109,7 +113,18 @@ function iniciarJuego(){
 function seleccionarMascotaJugador(){
 
     sectionSeleccionarMascota.style.display="none";
-    sectionSeleccionarAtaque.style.display="flex";
+    //sectionSeleccionarAtaque.style.display="flex";
+    sectionSeleccionarReiniciar.style.display="none";
+    sectionVerMapas.style.display="flex";
+    let imagenCapipepo= new Image();
+    imagenCapipepo.src= capipepo.foto;
+    lienzo.drawImage(
+        imagenCapipepo,
+        20,
+        40,
+        100,
+        100
+    );
 
 
     if (inputHipodoge.checked){
@@ -277,6 +292,7 @@ function crearMensaje(resultadoDeCombate){
 
 }
 function crearMensajeFinal(resultadoFinal){
+
    
     seccionMensaje.innerHTML=resultadoFinal;
 
