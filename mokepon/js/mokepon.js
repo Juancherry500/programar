@@ -82,6 +82,13 @@ hipodoge.ataques.push(
     {nombre:"🔥", id:"boton-fuego"},
     {nombre:"🌱", id:"boton-tierra"},
 )
+hipodogeEnemigo.ataques.push(
+    {nombre:"💧", id:"boton-agua"},
+    {nombre:"💧", id:"boton-agua"},
+    {nombre:"💧", id:"boton-agua"},
+    {nombre:"🔥", id:"boton-fuego"},
+    {nombre:"🌱", id:"boton-tierra"},
+)
 capipepo.ataques.push(
     {nombre:"🌱", id:"boton-tierra"},
     {nombre:"🌱", id:"boton-tierra"},
@@ -90,7 +97,23 @@ capipepo.ataques.push(
     {nombre:"🔥", id:"boton-fuego"},
 
 )
+capipepoEnemigo.ataques.push(
+    {nombre:"🌱", id:"boton-tierra"},
+    {nombre:"🌱", id:"boton-tierra"},
+    {nombre:"🌱", id:"boton-tierra"},
+    {nombre:"💧", id:"boton-agua"},
+    {nombre:"🔥", id:"boton-fuego"},
+
+)
 ratigueya.ataques.push(
+    {nombre:"🔥", id:"boton-fuego"},
+    {nombre:"🔥", id:"boton-fuego"},
+    {nombre:"🔥", id:"boton-fuego"},
+    {nombre:"🌱", id:"boton-tierra"},
+    {nombre:"💧", id:"boton-agua"},
+
+)
+ratigueyaEnemigo.ataques.push(
     {nombre:"🔥", id:"boton-fuego"},
     {nombre:"🔥", id:"boton-fuego"},
     {nombre:"🔥", id:"boton-fuego"},
@@ -133,7 +156,6 @@ function iniciarJuego(){
 function seleccionarMascotaJugador(){
 
     sectionSeleccionarMascota.style.display="none";
-    //sectionSeleccionarAtaque.style.display="flex";
     sectionSeleccionarReiniciar.style.display="none";
   
 
@@ -153,8 +175,6 @@ function seleccionarMascotaJugador(){
     extraerAtaque(mascotaJugador);
     sectionVerMapas.style.display="flex";
     iniciarMapa()
-    seleccionarMascotaEnemigo();
-
 }
 
 function extraerAtaque(mascotaJugador){
@@ -210,14 +230,11 @@ function secuenciaDeAtaque(){
     });
 }
 
-function seleccionarMascotaEnemigo(){
+function seleccionarMascotaEnemigo(enemigo){
 
-    let mascotaAleatorio=aleatorio(0,mokepones.length-1);
+    spanMascotaEnemigo.innerHTML=enemigo.nombre;
 
-
-    spanMascotaEnemigo.innerHTML=mokepones[mascotaAleatorio].nombre;
-
-    ataquesMokeponEnemigo=mokepones[mascotaAleatorio].ataques;
+    ataquesMokeponEnemigo=enemigo.ataques;
     secuenciaDeAtaque();
 
 
@@ -428,6 +445,9 @@ function revisarColicion(enemigo){
             return;
     }
     detenerMovimiento();
-    alert("Hay colicion "+ enemigo.nombre);
+    clearInterval(intervalo);
+    sectionVerMapas.style.display="none";
+    sectionSeleccionarAtaque.style.display="flex";
+    seleccionarMascotaEnemigo(enemigo);
 }
 window.addEventListener("load",iniciarJuego)
