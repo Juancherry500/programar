@@ -71,6 +71,17 @@ input:checked + label{
     align-items: center;
     justify-content: center;
 }
+#ver-mapas button{
+    width: 80px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin:10px 0;
+}
+
 
 
 #selecionar-ataque{
@@ -127,5 +138,13 @@ input:checked + label{
     }
     #botones{
         flex-direction: column;
+    }
+}
+@media (max-width: 300px){
+    #ver-mapas div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
