@@ -16,11 +16,11 @@
         <section id="ver-mapas">
             <h2 class="subtitulo">Recorre el mapa con tu MOKEPON! </h2>
             <canvas id="mapa"></canvas>
-            <button onmouseup="detenerMovimiento()" onmousedown="moverArriba()">ARRIBA</button>
+            <button ontouchend="detenerMovimiento()" onmouseup="detenerMovimiento()" onmousedown="moverArriba()" ontouchstart="moverArriba()">ARRIBA</button>
             <div>
-                <button onmouseup="detenerMovimiento()" onmousedown="moverIzquierda()">IZQUIERDA</button>
-                <button onmouseup="detenerMovimiento()" onmousedown="moverAbajo()">ABAJO</button>
-                <button onmouseup="detenerMovimiento()" onmousedown="moverDerecha()">DERECHA</button>
+                <button ontouchend="detenerMovimiento()" onmouseup="detenerMovimiento()" onmousedown="moverIzquierda()" ontouchstart="moverIzquierda()">IZQUIERDA</button>
+                <button ontouchend="detenerMovimiento()" onmouseup="detenerMovimiento()" onmousedown="moverAbajo()" ontouchstart="moverAbajo()">ABAJO</button>
+                <button ontouchend="detenerMovimiento()" onmouseup="detenerMovimiento()" onmousedown="moverDerecha()" ontouchstart="moverDerecha()">DERECHA</button>
             </div>
         </section>
 
